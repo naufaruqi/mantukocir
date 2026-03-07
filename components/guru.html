@@ -1,0 +1,60 @@
+<!-- Card Daftar Guru -->
+<section
+  id="daftarGuru"
+  class="bg-gradient-to-b from-[#26a69a] to-[#1e88e5] py-12 mt-10"
+>
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center mb-8">
+      <h3
+        class="text-2xl font-['Outfit'] font-bold flex items-center text-white"
+      >
+        <i class="fas fa-user-graduate text-orange-400 mr-2"></i> Guru dan Staf
+      </h3>
+      <a
+        href="c. guru dan tendik.html"
+        class="text-white hover:text-orange-300 transition-colors duration-200 font-semibold text-sm flex items-center"
+        >Lihat Semua <i class="fas fa-chevron-right ml-2 text-xs"></i
+      ></a>
+    </div>
+    <!-- Carousel Container -->
+    <div class="relative group">
+      <div
+        id="guru-carousel"
+        class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide scroll-smooth"
+        style="-ms-overflow-style: none; scrollbar-width: none"
+      >
+        <!-- Cards will be injected here by JavaScript -->
+        <div class="text-white opacity-50 text-center w-full py-10">
+          <i class="fas fa-spinner fa-spin mr-2"></i> Memuat data guru...
+        </div>
+      </div>
+
+      <!-- Carousel Navigation Buttons (Optional but helpful) -->
+      <button
+        onclick="scrollCarousel(-1)"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button
+        onclick="scrollCarousel(1)"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Seeker (Progress Bar) -->
+    <div class="max-w-md mx-auto mt-4 px-4">
+      <div
+        class="h-1.5 w-full bg-white/20 rounded-full overflow-hidden relative"
+      >
+        <div
+          id="carousel-seeker"
+          class="absolute top-0 left-0 h-full bg-orange-400 rounded-full transition-all duration-100 ease-out"
+          style="width: 0%"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>

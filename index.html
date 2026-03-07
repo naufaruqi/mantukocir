@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth scroll-pt-20">
+  <head>
+    <!-- Meta Karakter -->
+    <meta charset="UTF-8" />
+    <!-- Meta Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Nama Taskbar -->
+    <title>MAN 1 Kota Cirebon - Clone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Component Containers -->
+    <div class="sticky top-0 z-40" id="navbar-container"></div>
+    <div id="hero-container"></div>
+    <div id="features-container"></div>
+    <div id="agenda-container"></div>
+    <div id="artikel-container"></div>
+    <div id="guru-container"></div>
+    <div id="footer-container"></div>
+
+    <!-- Modal Guru (Common across pages) -->
+    <div
+      id="guru-modal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 transition-transform duration-300 relative"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 bg-white/50 hover:bg-gray-100 rounded-full p-2 z-10 transition"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+      // Function to dynamically load HTML components
+      async function loadComponent(elementId, componentPath) {
+        try {
+          const response = await fetch(componentPath);
+          if (!response.ok) {
+            throw new Error(`Failed to load ${componentPath}`);
+          }
+          const html = await response.text();
+          document.getElementById(elementId).innerHTML = html;
+
+          // Re-attach event listeners specific to the injected content
+          if (elementId === "navbar-container") {
+            attachNavbarEvents();
+          }
+        } catch (error) {
+          console.error(error);
+          document.getElementById(elementId).innerHTML =
+            `<p class="text-red-500 p-4">Error loading component: ${componentPath}</p>`;
+        }
+      }
+
+      // Initialize all components
+      async function initializePage() {
+        await Promise.all([
+          loadComponent("navbar-container", "./components/navbar.html"),
+          loadComponent("hero-container", "./components/hero.html"),
+          loadComponent("features-container", "./components/features.html"),
+          loadComponent("agenda-container", "./components/agenda.html"),
+          loadComponent("artikel-container", "./components/artikel.html"),
+          loadComponent("guru-container", "./components/guru.html"),
+          loadComponent("footer-container", "./components/footer.html"),
+        ]);
+
+        // Initialize guru carousel after guru container is loaded
+        loadGuruCarousel();
+      }
+
+      let guruData = [];
+
+      async function loadGuruCarousel() {
+        const carousel = document.getElementById("guru-carousel");
+        const seeker = document.getElementById("carousel-seeker");
+        if (!carousel) return;
+
+        try {
+          const response = await fetch("gurus.json");
+          if (!response.ok) throw new Error("Gagal memuat gurus.json");
+          guruData = await response.json();
+
+          // Shuffle logic for random display
+          for (let i = guruData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [guruData[i], guruData[j]] = [guruData[j], guruData[i]];
+          }
+
+          // Clear loading spinner
+          carousel.innerHTML = "";
+
+          // Render cards (Take only first 12 for homepage for performance)
+          guruData.slice(0, 12).forEach((guru, index) => {
+            const card = document.createElement("div");
+            card.className =
+              "min-w-[280px] md:min-w-[320px] bg-white rounded-xl p-3 text-center relative text-gray-800 hover:shadow-xl transition-all duration-300 snap-center mb-4";
+            card.innerHTML = `
+              <img
+                src="${guru.foto.replace("../", "")}"
+                class="w-full h-72 object-cover rounded-lg mb-14"
+                alt="${guru.nama}"
+                onerror="this.src='https://picsum.photos/300/400?random=${index}'"
+              />
+              <div
+                class="absolute bottom-3 left-3 right-3 bg-gradient-to-r from-[#1e88e5] to-[#26a69a] text-white p-3 rounded-lg flex justify-between items-center"
+              >
+                <div class="text-left overflow-hidden mr-2">
+                  <h4 class="font-bold text-xs truncate" title="${guru.nama}">
+                    ${guru.nama}
+                  </h4>
+                  <p class="text-[10px] text-white/80 truncate">${guru.jabatan || "Guru"}</p>
+                </div>
+                <button
+                  onclick="showGuruModal(${index})"
+                  class="bg-white text-gray-800 text-[10px] px-3 py-1.5 rounded-full inline-block no-underline font-bold hover:bg-orange-400 hover:text-white transition-all duration-200"
+                >Detail</button>
+              </div>
+            `;
+            carousel.appendChild(card);
+          });
+
+          // Seeker logic
+          carousel.addEventListener("scroll", () => {
+            const scrollLeft = carousel.scrollLeft;
+            const scrollWidth = carousel.scrollWidth - carousel.clientWidth;
+            const progress = (scrollLeft / scrollWidth) * 100;
+            seeker.style.width = `${progress}%`;
+          });
+        } catch (error) {
+          console.error(error);
+          carousel.innerHTML = `<p class="text-white bg-red-500/20 p-4 rounded-lg">Gagal memuat data guru</p>`;
+        }
+      }
+
+      window.scrollCarousel = function (direction) {
+        const carousel = document.getElementById("guru-carousel");
+        if (carousel) {
+          const scrollAmount = carousel.clientWidth * 0.8;
+          carousel.scrollBy({
+            left: direction * scrollAmount,
+            behavior: "smooth",
+          });
+        }
+      };
+
+      window.showGuruModal = function (index) {
+        const guru = guruData[index];
+        const modal = document.getElementById("guru-modal");
+        const modalContent = document.getElementById("modal-content");
+        if (!guru || !modal) return;
+
+        const imgUrl = guru.foto.replace("../", "");
+
+        modalContent.innerHTML = `
+          <div class="bg-gradient-to-br from-[#2ebcb9] to-[#0a95ff] p-6 text-white text-center rounded-t-2xl relative">
+            <div class="w-24 h-24 mx-auto bg-white rounded-full p-1 shadow-lg mb-3">
+              <img src="${imgUrl}" alt="${guru.nama}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://picsum.photos/200/200?random=${index}'" />
+            </div>
+            <h3 class="font-bold text-xl uppercase">${guru.nama}</h3>
+            <p class="text-sm text-gray-100 mt-1"><i class="fas fa-user-tag mr-1"></i>${guru.jabatan || "Guru"}</p>
+          </div>
+          <div class="p-6 bg-white text-gray-700 space-y-3 text-sm">
+            <div class="flex justify-between border-b pb-2">
+              <span class="font-semibold text-gray-500">Status</span>
+              <span class="font-medium text-gray-800">${guru.status || "-"}</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="font-semibold text-gray-500">NIP</span>
+              <span class="font-medium text-gray-800">${guru.nip || "-"}</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="font-semibold text-gray-500">NUPTK</span>
+              <span class="font-medium text-gray-800">${guru.nuptk || "-"}</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="font-semibold text-gray-500">HP/WA</span>
+              <span class="font-medium text-gray-800">${guru.hp || "-"}</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="font-semibold text-gray-500">Email</span>
+              <span class="font-medium text-gray-800 truncate pl-4" title="${guru.email || "-"}">${guru.email || "-"}</span>
+            </div>
+          </div>
+        `;
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        setTimeout(() => {
+          modal.classList.remove("opacity-0");
+          modal.firstElementChild.classList.remove("scale-95");
+          modal.firstElementChild.classList.add("scale-100");
+        }, 10);
+      };
+
+      window.closeModal = function () {
+        const modal = document.getElementById("guru-modal");
+        if (!modal) return;
+        modal.classList.add("opacity-0");
+        modal.firstElementChild.classList.remove("scale-100");
+        modal.firstElementChild.classList.add("scale-95");
+        setTimeout(() => {
+          modal.classList.remove("flex");
+          modal.classList.add("hidden");
+        }, 300);
+      };
+
+      // Close modal on outside click
+      window.addEventListener("click", (e) => {
+        const modal = document.getElementById("guru-modal");
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Function to re-attach navbar specific event listeners
+      function attachNavbarEvents() {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu");
+        const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+            setTimeout(() => {
+              mobileMenuPanel.classList.remove("-translate-x-full");
+            }, 10);
+          });
+
+          closeMenuBtn.addEventListener("click", () => {
+            mobileMenuPanel.classList.add("-translate-x-full");
+            setTimeout(() => {
+              mobileMenu.classList.remove("flex");
+              mobileMenu.classList.add("hidden");
+            }, 300);
+          });
+
+          // Close menu when clicking outside
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+              mobileMenuPanel.classList.add("-translate-x-full");
+              setTimeout(() => {
+                mobileMenu.classList.remove("flex");
+                mobileMenu.classList.add("hidden");
+              }, 300);
+            }
+          });
+        }
+      }
+
+      // Setup hero search functionality
+      function setupSearch() {
+        const searchIcon = document.querySelector(".fa-search");
+        if (searchIcon) {
+          const searchButton = searchIcon.parentElement;
+          const searchInput = document.querySelector('input[type="text"]');
+
+          searchButton.addEventListener("click", () => {
+            if (searchInput.value.trim()) {
+              alert("Mencari: " + searchInput.value);
+            } else {
+              searchInput.focus();
+            }
+          });
+
+          searchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              searchButton.click();
+            }
+          });
+        }
+      }
+
+      // Global context toggle for submenus injected dynamically
+      window.toggleSubmenu = function (submenuId) {
+        const submenu = document.getElementById(submenuId);
+        const chevron = document.getElementById(
+          submenuId.replace("-submenu", "-chevron"),
+        );
+        if (submenu) {
+          submenu.classList.toggle("hidden");
+
+          // Rotate chevron
+          if (submenu.classList.contains("hidden")) {
+            chevron.style.transform = "rotate(0deg)";
+          } else {
+            chevron.style.transform = "rotate(180deg)";
+          }
+        }
+      };
+
+      // Run on page load
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>
