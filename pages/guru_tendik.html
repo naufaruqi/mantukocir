@@ -35,7 +35,15 @@
         try {
           const response = await fetch(url);
           if (!response.ok) throw new Error(`Gagal memuat ${url}`);
-          const content = await response.text();
+          let content = await response.text();
+
+          // Fix relative paths for subpages
+          content = content
+            .replace(/href="pages\//g, 'href="')
+            .replace(/src="\.\//g, 'src="../')
+            .replace(/href="login\.html"/g, 'href="../login.html"')
+            .replace(/href="index\.html"/g, 'href="../index.html"');
+
           document.getElementById(id).innerHTML = content;
         } catch (error) {
           console.error(error);
@@ -44,11 +52,14 @@
 
       async function initializePage() {
         // Load Navbar and Footer
-        await loadComponent("navbar", "components/navbar.html");
-        await loadComponent("footer", "components/footer.html");
+        await loadComponent("navbar", "../components/navbar.html");
+        await loadComponent("footer", "../components/footer.html");
 
         // Load Unique Content
-        await loadComponent("content", "components/guru_tendik_content.html");
+        await loadComponent(
+          "content",
+          "../components/guru_tendik_content.html",
+        );
 
         // After content is loaded, initialize teacher logic
         await loadGurus();
@@ -58,7 +69,7 @@
 
       async function loadGurus() {
         try {
-          const res = await fetch("gurus.json");
+          const res = await fetch("../gurus.json");
           if (!res.ok) throw new Error("gagal memuat data guru");
           semuaGuru = await res.json();
 
@@ -132,10 +143,10 @@
               </div>
               <div class="w-1/2">
                 <img
-                  src="${guru.foto || "https://picsum.photos/200/300?random=" + Math.floor(Math.random() * 100)}"
+                  src="${guru.foto ? (guru.foto.startsWith("../") ? guru.foto : "../" + guru.foto) : "https://picsum.photos/200/300?random=" + Math.floor(Math.random() * 100)}"
                   alt="Guru"
                   class="rounded-lg w-full h-40 object-cover shadow border border-white/20"
-                  onerror="this.src='img/default.jpg'"
+                  onerror="this.src='../img/default.jpg'"
                 />
               </div>
             </div>
@@ -215,15 +226,17 @@
         const modalContent = document.getElementById("modal-content");
         if (!modal || !modalContent) return;
 
-        const imgUrl =
-          guru.foto ||
-          "https://picsum.photos/200/300?random=" +
+        const imgUrl = guru.foto
+          ? guru.foto.startsWith("../")
+            ? guru.foto
+            : "../" + guru.foto
+          : "https://picsum.photos/200/300?random=" +
             Math.floor(Math.random() * 100);
 
         modalContent.innerHTML = `
           <div class="bg-gradient-to-br from-[#2ebcb9] to-[#0a95ff] p-6 text-white text-center rounded-t-2xl relative">
             <div class="w-24 h-24 mx-auto bg-white rounded-full p-1 shadow-lg mb-3">
-              <img src="${imgUrl}" alt="${guru.nama}" class="w-full h-full object-cover rounded-full" onerror="this.src='img/default.jpg'" />
+              <img src="${imgUrl}" alt="${guru.nama}" class="w-full h-full object-cover rounded-full" onerror="this.src='../img/default.jpg'" />
             </div>
             <h3 class="font-bold text-xl uppercase">${guru.nama}</h3>
             <p class="text-sm text-gray-100 mt-1"><i class="fas fa-user-tag mr-1"></i>${guru.jabatan || "Guru"}</p>

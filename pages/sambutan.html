@@ -33,7 +33,15 @@
         try {
           const response = await fetch(url);
           if (!response.ok) throw new Error(`Gagal memuat ${url}`);
-          const content = await response.text();
+          let content = await response.text();
+
+          // Fix relative paths for subpages
+          content = content
+            .replace(/href="pages\//g, 'href="')
+            .replace(/src="\.\//g, 'src="../')
+            .replace(/href="login\.html"/g, 'href="../login.html"')
+            .replace(/href="index\.html"/g, 'href="../index.html"');
+
           document.getElementById(id).innerHTML = content;
         } catch (error) {
           console.error(error);
@@ -42,11 +50,11 @@
 
       async function initializePage() {
         // Load Navbar and Footer
-        await loadComponent("navbar", "components/navbar.html");
-        await loadComponent("footer", "components/footer.html");
+        await loadComponent("navbar", "../components/navbar.html");
+        await loadComponent("footer", "../components/footer.html");
 
         // Load Unique Content
-        await loadComponent("content", "components/sambutan_content.html");
+        await loadComponent("content", "../components/sambutan_content.html");
 
         // Attach Events
         attachNavbarEvents();

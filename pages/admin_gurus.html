@@ -26,6 +26,85 @@
     <div id="navbar"></div>
     <div id="content"></div>
 
+    <!-- GitHub Settings Modal -->
+    <div
+      id="github-modal"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] hidden items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+        <h3
+          class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"
+        >
+          <i class="fab fa-github text-2xl"></i> GitHub Sync Settings
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Personal Access Token (PAT)</label
+            >
+            <input
+              type="password"
+              id="gh-token"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="ghp_xxxxxxxxxxxx"
+            />
+            <p class="text-[10px] text-gray-500 mt-1">
+              Token with 'repo' scope. Stored only in your browser.
+            </p>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Repo Path (owner/repo)</label
+            >
+            <input
+              type="text"
+              id="gh-repo"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="username/repository"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Branch</label
+            >
+            <input
+              type="text"
+              id="gh-branch"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="main"
+            />
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end gap-3">
+          <button
+            onclick="closeGithubSettings()"
+            class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            Batal
+          </button>
+          <button
+            onclick="saveGithubSettings()"
+            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-md transition"
+          >
+            Simpan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sync Toast -->
+    <div
+      id="sync-toast"
+      class="fixed bottom-6 right-6 z-[100] hidden flex items-center gap-3 bg-gray-800 text-white px-6 py-3 rounded-xl shadow-2xl transition-all translate-y-10 opacity-0"
+    >
+      <div id="toast-icon" class="w-6 h-6 flex items-center justify-center">
+        <i class="fas fa-spinner fa-spin"></i>
+      </div>
+      <span id="toast-msg" class="text-sm font-medium"
+        >Sinkronisasi ke GitHub...</span
+      >
+    </div>
+
     <script>
       let guruData = [];
 
@@ -33,7 +112,15 @@
         try {
           const response = await fetch(url);
           if (!response.ok) throw new Error(`Gagal memuat ${url}`);
-          const content = await response.text();
+          let content = await response.text();
+
+          // Fix relative paths for subpages
+          content = content
+            .replace(/href="pages\//g, 'href="')
+            .replace(/src="\.\//g, 'src="../')
+            .replace(/href="login\.html"/g, 'href="../login.html"')
+            .replace(/href="index\.html"/g, 'href="../index.html"');
+
           document.getElementById(id).innerHTML = content;
         } catch (error) {
           console.error(error);
@@ -41,8 +128,8 @@
       }
 
       async function initializePage() {
-        await loadComponent("navbar", "components/admin_navbar.html");
-        await loadComponent("content", "components/admin_content.html");
+        await loadComponent("navbar", "../components/admin_navbar.html");
+        await loadComponent("content", "../components/admin_content.html");
 
         // Initialize CRUD logic
         loadData();
@@ -52,7 +139,7 @@
       async function loadData() {
         const loading = document.getElementById("loading");
         try {
-          const response = await fetch("gurus.json");
+          const response = await fetch("../gurus.json");
           if (!response.ok) throw new Error("Gagal load json");
           guruData = await response.json();
           if (loading) loading.classList.add("hidden");
@@ -91,13 +178,17 @@
           const tr = document.createElement("tr");
           tr.className = "hover:bg-gray-50 transition border-b";
 
-          const photoSrc = guru.foto || "img/default.jpg";
+          const photoSrc = guru.foto
+            ? guru.foto.startsWith("../")
+              ? guru.foto
+              : "../" + guru.foto
+            : "../img/default.jpg";
 
           tr.innerHTML = `
           <td class="p-4 text-gray-500">${realIndex + 1}</td>
           <td class="p-4">
             <div class="flex items-center gap-3">
-              <img src="${photoSrc}" class="w-10 h-10 rounded-full object-cover border shadow-sm" alt="${guru.nama}" onerror="this.src='img/default.jpg'">
+              <img src="${photoSrc}" class="w-10 h-10 rounded-full object-cover border shadow-sm" alt="${guru.nama}" onerror="this.src='../img/default.jpg'">
               <div>
                 <p class="font-bold text-gray-800">${guru.nama}</p>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-full ${getStatusBadgeColor(guru.status)}">
@@ -176,7 +267,7 @@
         modal.classList.remove("flex");
       };
 
-      window.saveData = function () {
+      window.saveData = async function () {
         const idx = parseInt(document.getElementById("entry-index").value);
         const nama = document.getElementById("form-nama").value.trim();
 
@@ -206,15 +297,153 @@
 
         closeModal();
         renderTable();
-        alert("Simpan Berhasil! (Offline / Sementara)");
+
+        // Push to GitHub if configured
+        const config = getGithubConfig();
+        if (config.token && config.repo) {
+          await pushToGithub();
+        } else {
+          alert("Selesai! Data disimpan secara lokal di memori browser.");
+        }
       };
 
-      window.deleteData = function (index) {
+      window.deleteData = async function (index) {
         if (confirm(`Yakin ingin menghapus guru: ${guruData[index].nama}?`)) {
           guruData.splice(index, 1);
           renderTable();
+
+          const config = getGithubConfig();
+          if (config.token && config.repo) {
+            await pushToGithub();
+          }
         }
       };
+
+      // GitHub Persistence Logic
+      function getGithubConfig() {
+        return {
+          token: localStorage.getItem("gh_token") || "",
+          repo: localStorage.getItem("gh_repo") || "",
+          branch: localStorage.getItem("gh_branch") || "main",
+        };
+      }
+
+      window.openGithubSettings = function () {
+        const config = getGithubConfig();
+        document.getElementById("gh-token").value = config.token;
+        document.getElementById("gh-repo").value = config.repo;
+        document.getElementById("gh-branch").value = config.branch;
+
+        const modal = document.getElementById("github-modal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      };
+
+      window.closeGithubSettings = function () {
+        const modal = document.getElementById("github-modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      };
+
+      window.saveGithubSettings = function () {
+        localStorage.setItem(
+          "gh_token",
+          document.getElementById("gh-token").value.trim(),
+        );
+        localStorage.setItem(
+          "gh_repo",
+          document.getElementById("gh-repo").value.trim(),
+        );
+        localStorage.setItem(
+          "gh_branch",
+          document.getElementById("gh-branch").value.trim() || "main",
+        );
+        closeGithubSettings();
+        alert("Pengaturan GitHub disimpan!");
+      };
+
+      async function pushToGithub() {
+        const config = getGithubConfig();
+        if (!config.token || !config.repo) return;
+
+        showToast("Sinkronisasi ke GitHub...", true);
+
+        try {
+          // 1. Get current SHA of gurus.json
+          const url = `https://api.github.com/repos/${config.repo}/contents/gurus.json?ref=${config.branch}`;
+          const getRes = await fetch(url, {
+            headers: { Authorization: `token ${config.token}` },
+          });
+
+          let sha = "";
+          if (getRes.ok) {
+            const data = await getRes.json();
+            sha = data.sha;
+          }
+
+          // 2. Push updated content
+          // Using TextEncoder for UTF-8 support
+          const jsonStr = JSON.stringify(guruData, null, 4);
+          const bytes = new TextEncoder().encode(jsonStr);
+          const binString = Array.from(bytes, (byte) =>
+            String.fromCharCode(byte),
+          ).join("");
+          const content = btoa(binString);
+
+          const putRes = await fetch(url, {
+            method: "PUT",
+            headers: {
+              Authorization: `token ${config.token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              message: `Update gurus.json via Admin Panel [${new Date().toLocaleString()}]`,
+              content: content,
+              sha: sha,
+              branch: config.branch,
+            }),
+          });
+
+          if (putRes.ok) {
+            showToast(
+              "Berhasil sinkron ke GitHub!",
+              false,
+              "fa-check-circle text-green-400",
+            );
+          } else {
+            const errData = await putRes.json();
+            throw new Error(errData.message || "Gagal update file di GitHub");
+          }
+        } catch (err) {
+          console.error(err);
+          showToast(
+            `Error: ${err.message}`,
+            false,
+            "fa-exclamation-triangle text-red-500",
+          );
+        }
+      }
+
+      function showToast(msg, isSpinning = false, iconClass = "fa-spinner") {
+        const toast = document.getElementById("sync-toast");
+        const msgEl = document.getElementById("toast-msg");
+        const iconEl = document.getElementById("toast-icon");
+
+        msgEl.innerText = msg;
+        iconEl.innerHTML = `<i class="fas ${iconClass} ${isSpinning ? "fa-spin" : ""}"></i>`;
+
+        toast.classList.remove("hidden");
+        setTimeout(() => {
+          toast.classList.remove("opacity-0", "translate-y-10");
+        }, 10);
+
+        if (!isSpinning) {
+          setTimeout(() => {
+            toast.classList.add("opacity-0", "translate-y-10");
+            setTimeout(() => toast.classList.add("hidden"), 500);
+          }, 4000);
+        }
+      }
 
       window.downloadJson = function () {
         const dataStr = JSON.stringify(guruData, null, 4);
