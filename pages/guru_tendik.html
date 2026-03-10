@@ -41,8 +41,14 @@
           content = content
             .replace(/href="pages\//g, 'href="')
             .replace(/src="\.\//g, 'src="../')
+            .replace(/src="img\//g, 'src="../img/')
+            .replace(/href="index\.html/g, 'href="../index.html')
             .replace(/href="login\.html"/g, 'href="../login.html"')
-            .replace(/href="index\.html"/g, 'href="../index.html"');
+            .replace(/href="#/g, 'href="../index.html#')
+            .replace(
+              /location\.href\s*=\s*'index\.html'/g,
+              "location.href = '../index.html'",
+            );
 
           document.getElementById(id).innerHTML = content;
         } catch (error) {
