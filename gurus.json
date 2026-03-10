@@ -2,7 +2,7 @@
     {
         "nama": "Dra. Hj. Elin Erlina, M.Hum",
         "jabatan": "Waka Kurikulum",
-        "foto": "../img/GURU/PNS/Elin.jpg",
+        "foto": "./img/GURU/PNS/Elin.jpg",
         "status": "PNS",
         "nip": "196905061993032006",
         "nuptk": 196905061993032000,
@@ -14,7 +14,7 @@
     {
         "nama": "Kardina, S.Pd",
         "jabatan": "Waka Kesiswaan",
-        "foto": "../img/GURU/PNS/Kardina.jpg",
+        "foto": "./img/GURU/PNS/Kardina.jpg",
         "status": "PNS",
         "nip": "196904162006041005",
         "nuptk": 196904162006041000,
@@ -26,7 +26,7 @@
     {
         "nama": "Yustria Nurmayati, S.Si, M.A",
         "jabatan": "Waka Sarpras",
-        "foto": "../img/GURU/PNS/Yustria.jpg",
+        "foto": "./img/GURU/PNS/Yustria.jpg",
         "status": "PNS",
         "nip": "198008172006042024",
         "nuptk": 198008172006042000,
@@ -38,7 +38,7 @@
     {
         "nama": "Abu Bakar, S.Ag.,M.PdI  ",
         "jabatan": "Waka Humas",
-        "foto": "../img/GURU/PNS/Abu.jpg ",
+        "foto": "./img/GURU/PNS/Abu.jpg ",
         "status": "PNS",
         "nip": "197512222005011002",
         "nuptk": 197512222005011000,
@@ -50,7 +50,7 @@
     {
         "nama": "Sunardi, S.Ag",
         "jabatan": "Pembina IRMA",
-        "foto": "../img/GURU/PNS/Sunardi.jpg",
+        "foto": "./img/GURU/PNS/Sunardi.jpg",
         "status": "PNS",
         "nip": "196606161994031002",
         "nuptk": 196606161994031000,
@@ -62,7 +62,7 @@
     {
         "nama": "Drs. Abdul Karim, M.Pd.I",
         "jabatan": "-",
-        "foto": "../img/GURU/PNS/AbdulKarim.jpg",
+        "foto": "./img/GURU/PNS/AbdulKarim.jpg",
         "status": "PNS",
         "nip": "196607211993031004",
         "nuptk": 196607211993031000,
@@ -74,7 +74,7 @@
     {
         "nama": "Drs. Akhmad Saefuludin, M.Pd",
         "jabatan": "-",
-        "foto": "../img/GURU/PNS/Ahmad.jpg",
+        "foto": "./img/GURU/PNS/Ahmad.jpg",
         "status": "PNS",
         "nip": "196605031994031002",
         "nuptk": 196605031994031000,
@@ -86,7 +86,7 @@
     {
         "nama": "Dra. Yayah Rodiah Setiawati",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PNS/Yayah.jpg",
+        "foto": "./img/GURU/PNS/Yayah.jpg",
         "status": "PNS",
         "nip": "196605221991032001",
         "nuptk": 196605221991032000,
@@ -98,7 +98,7 @@
     {
         "nama": "Drs. H. Didin Abidin, MA.",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PNS/Didin.jpg",
+        "foto": "./img/GURU/PNS/Didin.jpg",
         "status": "PNS",
         "nip": "196605201992031006",
         "nuptk": 196605201992031000,
@@ -110,7 +110,7 @@
     {
         "nama": "Hj. Evi Fidawati, S.Pd",
         "jabatan": "Wali Kelas 10 - H",
-        "foto": "../img/GURU/PNS/Evi.jpg",
+        "foto": "./img/GURU/PNS/Evi.jpg",
         "status": "PNS",
         "nip": "196812081995032001",
         "nuptk": 196812081995032000,
@@ -122,7 +122,7 @@
     {
         "nama": "Supriyadi Emon, S.Pd.I, M.PdI",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PNS/Supriyadi.jpg", 
+        "foto": "./img/GURU/PNS/Supriyadi.jpg", 
         "status": "PNS",
         "nip": "196805022000031001",
         "nuptk": 196805022000031000,
@@ -134,7 +134,7 @@
     {
         "nama": "Fadjaruddin, S.Pd",
         "jabatan": "Wali Kelas 12 E",
-        "foto": "../img/GURU/PNS/fadjarudin.jpg",
+        "foto": "./img/GURU/PNS/fadjarudin.jpg",
         "status": "PNS",
         "nip": "196908092005011007",
         "nuptk": 196908092005011000,
@@ -146,7 +146,7 @@
     {
         "nama": "H. Asep Setiawan, S.Pd",
         "jabatan": "Wali Kelas 12 H",
-        "foto": "../img/GURU/PNS/asep.jpg",
+        "foto": "./img/GURU/PNS/asep.jpg",
         "status": "PNS",
         "nip": "197101071991031003",
         "nuptk": 197101071991031000,
@@ -158,7 +158,7 @@
     {
         "nama": "Suniawati Hadi, S.Pd",
         "jabatan": "Wali Kelas 11 D",
-        "foto": "../img/GURU/PNS/suniawati.jpg",
+        "foto": "./img/GURU/PNS/suniawati.jpg",
         "status": "PNS",
         "nip": "197703012005012005",
         "nuptk": 197703012005012000,
@@ -170,7 +170,7 @@
     {
         "nama": "Amingsa, S.PdI.,M.A.",
         "jabatan": "Wali Kelas 10 - C",
-        "foto": "../img/GURU/PNS/amingsa.jpg",
+        "foto": "./img/GURU/PNS/amingsa.jpg",
         "status": "PNS",
         "nip": "198004132007101001",
         "nuptk": 198004132007101000,
@@ -182,7 +182,7 @@
     {
         "nama": "Triani Risnawati, S.Pd",
         "jabatan": "Wali Kelas 12 D",
-        "foto": "../img/GURU/PNS/triani.jpg",
+        "foto": "./img/GURU/PNS/triani.jpg",
         "status": "PNS",
         "nip": "197712162005012006",
         "nuptk": 197712162005012000,
@@ -194,7 +194,7 @@
     {
         "nama": "H. Ali Sholihin, S.Pd.I, M.Pd.",
         "jabatan": "PHBI  & PHBN",
-        "foto": "../img/GURU/PNS/Ali.png",
+        "foto": "./img/GURU/PNS/Ali.png",
         "status": "PNS",
         "nip": "198007152005011006",
         "nuptk": 198007152005011000,
@@ -206,7 +206,7 @@
     {
         "nama": "Rosa Yulia Agustina,S.Pd.",
         "jabatan": "Wali Kelas 10 - A",
-        "foto": "../img/GURU/PNS/rosa.jpg",
+        "foto": "./img/GURU/PNS/rosa.jpg",
         "status": "PNS",
         "nip": "198108142005012004",
         "nuptk": 198108142005012000,
@@ -218,7 +218,7 @@
     {
         "nama": "Ziza Nuraziza, S.E, M.Pd.",
         "jabatan": "Wali Kelas 11 J",
-        "foto": "../img/GURU/PNS/ziza.jpg",
+        "foto": "./img/GURU/PNS/ziza.jpg",
         "status": "PNS",
         "nip": "197612082007102002",
         "nuptk": 197612082007102000,
@@ -230,7 +230,7 @@
     {
         "nama": "Yudi Yudiantara, S.Pd.",
         "jabatan": "Wali Kelas 12 I",
-        "foto": "../img/GURU/PNS/yudi.png",
+        "foto": "./img/GURU/PNS/yudi.png",
         "status": "PNS",
         "nip": "197803132007101001",
         "nuptk": 197803132007101000,
@@ -242,7 +242,7 @@
     {
         "nama": "Ida Ratnawati, S.E",
         "jabatan": "Wali Kelas 12 F",
-        "foto": "../img/GURU/PNS/ida.jpg",
+        "foto": "./img/GURU/PNS/ida.jpg",
         "status": "PNS",
         "nip": "197105052007102001",
         "nuptk": 197105052007102000,
@@ -254,7 +254,7 @@
     {
         "nama": "Aby Bakar Shebly, S.Si",
         "jabatan": "Pembina KSM & OSN",
-        "foto": "../img/GURU/PNS/aby.jpg",
+        "foto": "./img/GURU/PNS/aby.jpg",
         "status": "PNS",
         "nip": "198007312009121003",
         "nuptk": 198007312009121000,
@@ -266,7 +266,7 @@
     {
         "nama": "Husnul Aeni, S.Pd.",
         "jabatan": "Wali Kelas 10 - F",
-        "foto": "../img/GURU/PNS/husnul.jpg",
+        "foto": "./img/GURU/PNS/husnul.jpg",
         "status": "PNS",
         "nip": "197407132007102003",
         "nuptk": 197407132007102000,
@@ -278,7 +278,7 @@
     {
         "nama": "H. Al-Afghoni, S.Pd.I",
         "jabatan": "Wali Kelas 10 - B",
-        "foto": "../img/GURU/PNS/afghoni.jpg",
+        "foto": "./img/GURU/PNS/afghoni.jpg",
         "status": "PNS",
         "nip": "198503252009121005",
         "nuptk": 198503252009121000,
@@ -290,7 +290,7 @@
     {
         "nama": "Sahroni, SPd.",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PNS/sahroni.jpg",
+        "foto": "./img/GURU/PNS/sahroni.jpg",
         "status": "PNS",
         "nip": "197202081999031005",
         "nuptk": 197202081999031000,
@@ -302,7 +302,7 @@
     {
         "nama": "Rika Rizki Fauziyah, S.PdI",
         "jabatan": "Wali Kelas 12 G",
-        "foto": "../img/GURU/PNS/rika.jpg",
+        "foto": "./img/GURU/PNS/rika.jpg",
         "status": "PNS",
         "nip": "199109292020122032",
         "nuptk": 199109292020122000,
@@ -314,7 +314,7 @@
     {
         "nama": "Wianti Agus Lisdiana, S.Pd",
         "jabatan": "Wali Kelas 12 C",
-        "foto": "../img/GURU/PNS/wianti.jpg",
+        "foto": "./img/GURU/PNS/wianti.jpg",
         "status": "PNS",
         "nip": "198508012011012014",
         "nuptk": 198508012011012000,
@@ -326,7 +326,7 @@
     {
         "nama": "Euis Kurnianingsih, S.Kom",
         "jabatan": "Wali Kelas 10 - K",
-        "foto": "../img/GURU/PNS/euis.jpg",
+        "foto": "./img/GURU/PNS/euis.jpg",
         "status": "PNS",
         "nip": "197011222014122001",
         "nuptk": 197011222014122000,
@@ -338,7 +338,7 @@
     {
         "nama": "Nurhasanah, S.Pd",
         "jabatan": "Wali Kelas 11 A",
-        "foto": "../img/GURU/PNS/nurhasanah.jpg",
+        "foto": "./img/GURU/PNS/nurhasanah.jpg",
         "status": "PNS",
         "nip": "198011022005012010",
         "nuptk": 198011022005012000,
@@ -350,7 +350,7 @@
     {
         "nama": "Ahmad Makhrus, S.Pd",
         "jabatan": "Wali Kelas 11 C",
-        "foto": "../img/GURU/PNS/mahrus.jpg",
+        "foto": "./img/GURU/PNS/mahrus.jpg",
         "status": "PNS",
         "nip": "199012012019031009",
         "nuptk": 199012012019031000,
@@ -362,7 +362,7 @@
     {
         "nama": "Nuris Tyanti, S.Pd",
         "jabatan": "Wali Kelas 11 G",
-        "foto": "../img/GURU/PNS/nuris.png",
+        "foto": "./img/GURU/PNS/nuris.png",
         "status": "PNS",
         "nip": "199205152019032013",
         "nuptk": 199205152019032000,
@@ -374,7 +374,7 @@
     {
         "nama": "Abdul Aziz, S.Pd",
         "jabatan": "Wali Kelas 10 - J",
-        "foto": "../img/GURU/PNS/aziz.jpg",
+        "foto": "./img/GURU/PNS/aziz.jpg",
         "status": "PNS",
         "nip": "199102202019031009",
         "nuptk": 199102202019031000,
@@ -386,7 +386,7 @@
     {
         "nama": "Muhammad Hasan Prasetyo, S.Pd",
         "jabatan": "Wali Kelas 11 B",
-        "foto": "../img/GURU/PNS/hasan.jpg",
+        "foto": "./img/GURU/PNS/hasan.jpg",
         "status": "PNS",
         "nip": "198611062019031004",
         "nuptk": 198611062019031000,
@@ -398,7 +398,7 @@
     {
         "nama": "Haifa Zahra, S.PdI",
         "jabatan": "Wali Kelas 11 E",
-        "foto": "../img/GURU/PNS/haifa.jpg",
+        "foto": "./img/GURU/PNS/haifa.jpg",
         "status": "PNS",
         "nip": "198904102019032018",
         "nuptk": 198904102019032000,
@@ -410,7 +410,7 @@
     {
         "nama": "Fauziyah, S.Pd",
         "jabatan": "Wali Kelas 12 B",
-        "foto": "../img/GURU/PPPK/fauziyah.jpg",
+        "foto": "./img/GURU/PPPK/fauziyah.jpg",
         "status": "PPPK",
         "nip": "197412292022212006",
         "nuptk": 197412292022212000,
@@ -422,7 +422,7 @@
     {
         "nama": "Ela Komalawati, S.Pd",
         "jabatan": "Wali Kelas 11 F",
-        "foto": "../img/GURU/PPPK/ela.jpg",
+        "foto": "./img/GURU/PPPK/ela.jpg",
         "status": "PPPK",
         "nip": "198102262022212019",
         "nuptk": 198102262022212000,
@@ -434,7 +434,7 @@
     {
         "nama": "M. Anwar Sadat, M. Kom",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PPPK/anwar.jpg",
+        "foto": "./img/GURU/PPPK/anwar.jpg",
         "status": "PPPK",
         "nip": "198108072023211011",
         "nuptk": 198108072023211000,
@@ -446,7 +446,7 @@
     {
         "nama": "Ikmallulkarim, S.Pd",
         "jabatan": "Wali Kelas 11 H",
-        "foto": "../img/GURU/PPPK/Ikmallulkarim.jpg",
+        "foto": "./img/GURU/PPPK/Ikmallulkarim.jpg",
         "status": "PPPK",
         "nip": "198112072023211003",
         "nuptk": 198112072023211000,
@@ -458,7 +458,7 @@
     {
         "nama": "Lita Lestari, S.Pd.I.",
         "jabatan": "Wali Kelas 12 A",
-        "foto": "../img/GURU/PPPK/lita.jpg",
+        "foto": "./img/GURU/PPPK/lita.jpg",
         "status": "PPPK",
         "nip": "199107112023212038",
         "nuptk": 199107112023212000,
@@ -470,7 +470,7 @@
     {
         "nama": "Safrudin, S.PdI.",
         "jabatan": "Wali Kelas 11 - I",
-        "foto": "../img/GURU/PPPK/safrudin.jpg",
+        "foto": "./img/GURU/PPPK/safrudin.jpg",
         "status": "PPPK",
         "nip": "198505212023211013",
         "nuptk": 198505212023211000,
@@ -482,7 +482,7 @@
     {
         "nama": "Indana Zulfa, S.Pd",
         "jabatan": "Kordinator BK",
-        "foto": "../img/GURU/PPPK/indana.jpg",
+        "foto": "./img/GURU/PPPK/indana.jpg",
         "status": "PPPK",
         "nip": "199205042023212044",
         "nuptk": 199205042023212000,
@@ -494,7 +494,7 @@
     {
         "nama": "Siti Fatimah Nirbaya, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PPPK/fatimah.jpg",
+        "foto": "./img/GURU/PPPK/fatimah.jpg",
         "status": "PPPK",
         "nip": "199411222023212036",
         "nuptk": 199411222023212000,
@@ -506,7 +506,7 @@
     {
         "nama": "Arbi Hidayatullah, S.Pd",
         "jabatan": "Wali Kelas 10 - E",
-        "foto": "../img/GURU/PPPK/arbi.jpg",
+        "foto": "./img/GURU/PPPK/arbi.jpg",
         "status": "PPPK",
         "nip": "199702232024211011",
         "nuptk": 199702232024211000,
@@ -518,7 +518,7 @@
     {
         "nama": "Noeranisa Adhadianty Gunawan, S.Pd",
         "jabatan": "Wali Kelas 10 - D",
-        "foto": "../img/GURU/PPPK/noeranisa.jpg",
+        "foto": "./img/GURU/PPPK/noeranisa.jpg",
         "status": "PPPK",
         "nip": "199405212024212038",
         "nuptk": 199405212024212000,
@@ -530,7 +530,7 @@
     {
         "nama": "Rina Marlina, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/PPPK/rina.jpg",
+        "foto": "./img/GURU/PPPK/rina.jpg",
         "status": "PPPK",
         "nip": "197903302024212006",
         "nuptk": 197903302024212000,
@@ -542,7 +542,7 @@
     {
         "nama": "Nurkholis, S.Pd",
         "jabatan": "Wali Kelas 10 - I",
-        "foto": "../img/GURU/PPPK/nurkholis.jpg",
+        "foto": "./img/GURU/PPPK/nurkholis.jpg",
         "status": "PPPK",
         "nip": "197708072024211003",
         "nuptk": 197708072024211000,
@@ -554,7 +554,7 @@
     {
         "nama": "Maulana Yusuf, S.Pd.I.",
         "jabatan": "Wali Kelas 10 - G",
-        "foto": "../img/GURU/PPPK/maulana.jpg",
+        "foto": "./img/GURU/PPPK/maulana.jpg",
         "status": "PPPK",
         "nip": "199203222024211017",
         "nuptk": 199203222024211000,
@@ -566,7 +566,7 @@
     {
         "nama": "Muhamad Ihsan, S.Ud",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/ihsan.jpg",
+        "foto": "./img/GURU/CPNS/ihsan.jpg",
         "status": "CPNS",
         "nip": "199107092025051001",
         "nuptk": 199107092025051000,
@@ -578,7 +578,7 @@
     {
         "nama": "Euis Siti Mukhlisoh, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/euis2.jpg",
+        "foto": "./img/GURU/CPNS/euis2.jpg",
         "status": "CPNS",
         "nip": "199608242025052004",
         "nuptk": 199608242025052000,
@@ -590,7 +590,7 @@
     {
         "nama": "Muhammad Syarif Rizka Hidayatullah, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/syarif.jpg",
+        "foto": "./img/GURU/CPNS/syarif.jpg",
         "status": "CPNS",
         "nip": "199701272025051002",
         "nuptk": 199701272025051000,
@@ -602,7 +602,7 @@
     {
         "nama": "Nur Auliyah Fitriyani Sadira, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/auliyah.jpg",
+        "foto": "./img/GURU/CPNS/auliyah.jpg",
         "status": "CPNS",
         "nip": "199911082025052004",
         "nuptk": 199911082025052000,
@@ -614,7 +614,7 @@
     {
         "nama": "Revan Muliawan, S.Hum",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/revan.jpg",
+        "foto": "./img/GURU/CPNS/revan.jpg",
         "status": "CPNS",
         "nip": "199810112025051007",
         "nuptk": 199810112025051000,
@@ -626,7 +626,7 @@
     {
         "nama": "Fanesya Noer Salsabila, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/fanesya.jpg",
+        "foto": "./img/GURU/CPNS/fanesya.jpg",
         "status": "CPNS",
         "nip": "200003272025052009",
         "nuptk": 200003272025052000,
@@ -638,7 +638,7 @@
     {
         "nama": "Mohammad Yusuf Ramadhan, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/yusuf.jpg",
+        "foto": "./img/GURU/CPNS/yusuf.jpg",
         "status": "CPNS",
         "nip": "200012032025051001",
         "nuptk": 200012032025051000,
@@ -650,7 +650,7 @@
     {
         "nama": "Syalwa Amandayeta, S.Hum",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/syalwa.jpg",
+        "foto": "./img/GURU/CPNS/syalwa.jpg",
         "status": "CPNS",
         "nip": "200012282025052012",
         "nuptk": 200012282025052000,
@@ -662,7 +662,7 @@
     {
         "nama": "Lu'luimmaknuunah, S.Sos",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/luluimaknunah.jpg",
+        "foto": "./img/GURU/CPNS/luluimaknunah.jpg",
         "status": "CPNS",
         "nip": "200102182025052006",
         "nuptk": 200102182025052000,
@@ -674,7 +674,7 @@
     {
         "nama": "Anisa Adelia, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/anisa.jpg",
+        "foto": "./img/GURU/CPNS/anisa.jpg",
         "status": "CPNS",
         "nip": "200105072025052011",
         "nuptk": 200105072025052000,
@@ -686,7 +686,7 @@
     {
         "nama": "R. Annisa Ramadhini Fernandi, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/CPNS/raden.jpg",
+        "foto": "./img/GURU/CPNS/raden.jpg",
         "status": "CPNS",
         "nip": "199912172025052005",
         "nuptk": 199912172025052000,
@@ -698,7 +698,7 @@
     {
         "nama": "Fransiska Al Dzahabiyah, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/fransiska.jpg",
+        "foto": "./img/GURU/fransiska.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -710,7 +710,7 @@
     {
         "nama": "Anita Wahyu Ning Tyas, S.Pd",
         "jabatan": "-",
-        "foto": "../img/GURU/anita.jpg",
+        "foto": "./img/GURU/anita.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -722,7 +722,7 @@
     {
         "nama": "Muhammad Wildan Wahyu Nurfa",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/wildan.jpg",
+        "foto": "./img/GURU/wildan.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -734,7 +734,7 @@
     {
         "nama": "Siti Sundari, S.Pd",
         "jabatan": "-",
-        "foto": "../img/GURU/sundari.jpg",
+        "foto": "./img/GURU/sundari.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -746,7 +746,7 @@
     {
         "nama": "Nurtanti Puspa, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/puspa.jpg",
+        "foto": "./img/GURU/puspa.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -758,7 +758,7 @@
     {
         "nama": "Khusnul Habibah, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/khusnul.jpg",
+        "foto": "./img/GURU/khusnul.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -770,7 +770,7 @@
     {
         "nama": "Somad, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/somad.jpg",
+        "foto": "./img/GURU/somad.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -782,7 +782,7 @@
     {
         "nama": "Dinda Arieseta, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/dinda.jpg",
+        "foto": "./img/GURU/dinda.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -794,7 +794,7 @@
     {
         "nama": "Alfas Muhammad Fuad, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/alfas.jpg",
+        "foto": "./img/GURU/alfas.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -806,7 +806,7 @@
     {
         "nama": "Farikhah, S.Pd.I",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/farikhah.jpg",
+        "foto": "./img/GURU/farikhah.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -818,7 +818,7 @@
     {
         "nama": "Nurhalimah, S.Pd, M.Pd",
         "jabatan": "-",
-        "foto": "../img/GURU/nurhalimah.jpg",
+        "foto": "./img/GURU/nurhalimah.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
@@ -830,7 +830,7 @@
     {
         "nama": "Nanda Maulida, S.Pd",
         "jabatan": "Guru Piket",
-        "foto": "../img/GURU/nanda.jpg",
+        "foto": "./img/GURU/nanda.jpg",
         "status": "NON-ASN",
         "nip": "-",
         "nuptk": "",
