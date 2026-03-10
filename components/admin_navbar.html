@@ -1,0 +1,23 @@
+<!-- Admin Navbar -->
+<nav class="bg-[#29abe2] text-white p-4 shadow-md sticky top-0 z-40">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <i class="fas fa-database text-2xl"></i>
+      <span class="font-bold text-xl font-['Outfit']">Manajemen Data Guru</span>
+    </div>
+    <div class="flex gap-2">
+      <button
+        onclick="window.location.href = 'index.html'"
+        class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition text-sm font-medium"
+      >
+        <i class="fas fa-home mr-1"></i> Beranda Utama
+      </button>
+      <button
+        onclick="downloadJson()"
+        class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg transition text-sm font-medium shadow-md"
+      >
+        <i class="fas fa-download mr-1"></i> Unduh JSON
+      </button>
+    </div>
+  </div>
+</nav>

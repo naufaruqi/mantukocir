@@ -23,382 +23,38 @@
     />
   </head>
   <body class="bg-gray-50">
-    <!-- Top Taskbar -->
-    <nav class="bg-[#29abe2] text-white p-2 shadow-md sticky top-0 z-40">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-          <img src="./img/logoman.png" alt="OSIS" class="w-12 h-12" />
-          <span class="font-['Outfit'] font-bold text-2xl"
-            >MAN 1
-            <span class="font-bold text-2xl text-orange-500"
-              >Kota Cirebon</span
-            ></span
-          >
-        </div>
-        <ul class="hidden md:flex space-x-6 text-sm font-medium">
-          <li>
-            <a
-              href="index.html"
-              class="hover:text-orange-300 transition-colors duration-200"
-              >Beranda</a
-            >
-          </li>
-          <li class="relative group">
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200 flex items-center"
-            >
-              Profile <i class="fas fa-chevron-down text-xs ml-1"></i>
-            </a>
-            <ul
-              class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[150px] z-50"
-            >
-              <li>
-                <a
-                  href="b. sambutan.html"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Sambutan</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Visi & Misi</a
-                >
-              </li>
-              <li>
-                <a
-                  href="c. guru dan tendik.html"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Guru</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Ekskul</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Fasilitas</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200"
-              >Artikel</a
-            >
-          </li>
-          <li class="relative group">
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200 flex items-center"
-            >
-              Informasi <i class="fas fa-chevron-down text-xs ml-1"></i>
-            </a>
-            <ul
-              class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[150px] z-50"
-            >
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Pengumuman</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Agenda</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-                  >Prestasi</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200"
-              >PPDB</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200"
-              >RDM</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-orange-300 transition-colors duration-200"
-              >Kontak</a
-            >
-          </li>
-        </ul>
-        <button
-          onclick="window.location.href = 'a. login.html'"
-          class="hidden md:flex bg-white text-gray-700 px-6 py-1.5 rounded-full text-sm font-semibold flex items-center hover:bg-orange-100 hover:text-orange-600 transition-all duration-200 shadow-md hover:shadow-lg"
-        >
-          Masuk <i class="fas fa-lock ml-2 text-xs"></i>
-        </button>
-        <button
-          id="mobile-menu-btn"
-          class="md:hidden text-white hover:text-orange-300 transition-colors duration-200"
-        >
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </nav>
+    <div id="navbar"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
 
-    <!-- Mobile Menu -->
-    <div
-      id="mobile-menu"
-      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
-    >
-      <div
-        class="bg-white w-80 h-full shadow-xl transform -translate-x-full transition-transform duration-300"
-        id="mobile-menu-panel"
-      >
-        <div class="bg-[#29abe2] text-white p-4">
-          <div class="flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-              <img src="./img/logoman.png" alt="Logo MAN 1" class="w-8 h-8" />
-              <span class="font-['Outfit'] font-bold">MAN 1</span>
-            </div>
-            <button
-              id="close-menu"
-              class="text-white hover:text-orange-300 transition-colors duration-200"
-              aria-label="Tutup menu"
-            >
-              <i class="fas fa-times text-xl"></i>
-            </button>
-          </div>
-        </div>
-        <nav class="p-4" role="navigation">
-          <ul class="space-y-2 overflow-y-auto h-screen">
-            <li>
-              <a
-                href="index.html"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-                >Beranda</a
-              >
-            </li>
-
-            <li>
-              <button
-                class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center"
-                onclick="window.toggleSubmenu('profile-submenu')"
-                aria-expanded="false"
-              >
-                Profile
-                <i
-                  class="fas fa-chevron-down text-xs transition-transform duration-200"
-                  id="profile-chevron"
-                ></i>
-              </button>
-              <ul id="profile-submenu" class="hidden pl-4 mt-2 space-y-1">
-                <li>
-                  <a
-                    href="b. sambutan.html"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Sambutan</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Visi & Misi</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="c. guru dan tendik.html"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Guru</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Ekskul</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Fasilitas</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-                >Artikel</a
-              >
-            </li>
-            <li>
-              <button
-                class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center"
-                onclick="window.toggleSubmenu('info-submenu')"
-                aria-expanded="false"
-              >
-                Informasi
-                <i
-                  class="fas fa-chevron-down text-xs transition-transform duration-200"
-                  id="info-chevron"
-                ></i>
-              </button>
-              <ul id="info-submenu" class="hidden pl-4 mt-2 space-y-1">
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Pengumuman</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Agenda</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                    >Prestasi</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-                >PPDB</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-                >RDM</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-                >Kontak</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <!-- Guru dan Tendik -->
-    <main class="max-w-7xl mx-auto px-6 py-10">
-      <div
-        class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4"
-      >
-        <div>
-          <h2 class="text-3xl font-bold text-gray-800">Guru</h2>
-          <p class="text-gray-500 text-sm mt-1">Tenaga Pendidik dan Staf</p>
-        </div>
-
-        <!-- Filter Controls -->
-        <div class="flex flex-col sm:flex-row gap-3">
-          <div class="relative">
-            <input
-              type="text"
-              id="search-nama"
-              placeholder="Cari nama guru..."
-              class="w-full sm:w-64 pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm"
-            />
-            <i
-              class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-            ></i>
-          </div>
-          <select
-            id="filter-jabatan"
-            class="w-full sm:w-48 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm text-gray-700 bg-white"
-          >
-            <option value="">Semua Jabatan</option>
-          </select>
-          <select
-            id="filter-status"
-            class="w-full sm:w-48 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm text-gray-700 bg-white"
-          >
-            <option value="">Semua Status</option>
-          </select>
-        </div>
-      </div>
-
-      <div
-        id="guru-container"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
-        <!-- cards will be injected here by javascript -->
-      </div>
-
-      <!-- No Results Message -->
-      <div id="no-results" class="hidden text-center py-10">
-        <div class="text-gray-400 text-5xl mb-3">
-          <i class="fas fa-search-minus"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-700">Tidak ada hasil</h3>
-        <p class="text-gray-500 mt-2">
-          Coba sesuaikan kata kunci atau filter pencarian Anda.
-        </p>
-      </div>
-
-      <!-- Modal Guru -->
-      <div
-        id="guru-modal"
-        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300"
-      >
-        <div
-          class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 transition-transform duration-300 relative"
-        >
-          <button
-            onclick="closeModal()"
-            class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 bg-white/50 hover:bg-gray-100 rounded-full p-2 z-10 transition"
-          >
-            <i class="fas fa-times text-xl"></i>
-          </button>
-          <div id="modal-content">
-            <!-- Modal content injected here -->
-          </div>
-        </div>
-      </div>
-    </main>
-
+    <!-- Script Utama -->
     <script>
       let semuaGuru = [];
+
+      async function loadComponent(id, url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`Gagal memuat ${url}`);
+          const content = await response.text();
+          document.getElementById(id).innerHTML = content;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function initializePage() {
+        // Load Navbar and Footer
+        await loadComponent("navbar", "components/navbar.html");
+        await loadComponent("footer", "components/footer.html");
+
+        // Load Unique Content
+        await loadComponent("content", "components/guru_tendik_content.html");
+
+        // After content is loaded, initialize teacher logic
+        await loadGurus();
+        setupFilters();
+        attachNavbarEvents();
+      }
 
       async function loadGurus() {
         try {
@@ -416,16 +72,12 @@
 
       function populateJabatanDropdown(data) {
         const select = document.getElementById("filter-jabatan");
+        if (!select) return;
         const jabatanSet = new Set();
-
         data.forEach((guru) => {
-          if (guru.jabatan) {
-            jabatanSet.add(guru.jabatan);
-          }
+          if (guru.jabatan) jabatanSet.add(guru.jabatan);
         });
-
         const sortedJabatan = Array.from(jabatanSet).sort();
-
         sortedJabatan.forEach((jabatan) => {
           const option = document.createElement("option");
           option.value = jabatan;
@@ -436,16 +88,12 @@
 
       function populateStatusDropdown(data) {
         const select = document.getElementById("filter-status");
+        if (!select) return;
         const statusSet = new Set();
-
         data.forEach((guru) => {
-          if (guru.status && guru.status !== "-") {
-            statusSet.add(guru.status);
-          }
+          if (guru.status && guru.status !== "-") statusSet.add(guru.status);
         });
-
         const sortedStatus = Array.from(statusSet).sort();
-
         sortedStatus.forEach((status) => {
           const option = document.createElement("option");
           option.value = status;
@@ -458,6 +106,7 @@
         window.currentRenderedGurus = data;
         const container = document.getElementById("guru-container");
         const noResults = document.getElementById("no-results");
+        if (!container || !noResults) return;
         container.innerHTML = "";
 
         if (data.length === 0) {
@@ -486,6 +135,7 @@
                   src="${guru.foto || "https://picsum.photos/200/300?random=" + Math.floor(Math.random() * 100)}"
                   alt="Guru"
                   class="rounded-lg w-full h-40 object-cover shadow border border-white/20"
+                  onerror="this.src='img/default.jpg'"
                 />
               </div>
             </div>
@@ -537,11 +187,33 @@
         renderGurus(filteredData);
       }
 
-      function showModal(index) {
+      function setupFilters() {
+        const searchInput = document.getElementById("search-nama");
+        const filterJabatan = document.getElementById("filter-jabatan");
+        const filterStatus = document.getElementById("filter-status");
+
+        if (searchInput) searchInput.addEventListener("input", filterGurus);
+        if (filterJabatan)
+          filterJabatan.addEventListener("change", filterGurus);
+        if (filterStatus) filterStatus.addEventListener("change", filterGurus);
+
+        // Close modal when clicking outside
+        const modal = document.getElementById("guru-modal");
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+        }
+      }
+
+      window.showModal = function (index) {
         if (!window.currentRenderedGurus) return;
         const guru = window.currentRenderedGurus[index];
         const modal = document.getElementById("guru-modal");
         const modalContent = document.getElementById("modal-content");
+        if (!modal || !modalContent) return;
 
         const imgUrl =
           guru.foto ||
@@ -551,7 +223,7 @@
         modalContent.innerHTML = `
           <div class="bg-gradient-to-br from-[#2ebcb9] to-[#0a95ff] p-6 text-white text-center rounded-t-2xl relative">
             <div class="w-24 h-24 mx-auto bg-white rounded-full p-1 shadow-lg mb-3">
-              <img src="${imgUrl}" alt="${guru.nama}" class="w-full h-full object-cover rounded-full" />
+              <img src="${imgUrl}" alt="${guru.nama}" class="w-full h-full object-cover rounded-full" onerror="this.src='img/default.jpg'" />
             </div>
             <h3 class="font-bold text-xl uppercase">${guru.nama}</h3>
             <p class="text-sm text-gray-100 mt-1"><i class="fas fa-user-tag mr-1"></i>${guru.jabatan || "Guru"}</p>
@@ -590,16 +262,16 @@
 
         modal.classList.remove("hidden");
         modal.classList.add("flex");
-        // allow reflow
         setTimeout(() => {
           modal.classList.remove("opacity-0");
           modal.firstElementChild.classList.remove("scale-95");
           modal.firstElementChild.classList.add("scale-100");
         }, 10);
-      }
+      };
 
-      function closeModal() {
+      window.closeModal = function () {
         const modal = document.getElementById("guru-modal");
+        if (!modal) return;
         modal.classList.add("opacity-0");
         modal.firstElementChild.classList.remove("scale-100");
         modal.firstElementChild.classList.add("scale-95");
@@ -607,97 +279,53 @@
           modal.classList.remove("flex");
           modal.classList.add("hidden");
         }, 300);
-      }
+      };
 
-      document.addEventListener("DOMContentLoaded", () => {
-        loadGurus();
+      function attachNavbarEvents() {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu");
+        const mobileMenuPanel = document.getElementById("mobile-menu-panel");
 
-        document
-          .getElementById("search-nama")
-          .addEventListener("input", filterGurus);
-        document
-          .getElementById("filter-jabatan")
-          .addEventListener("change", filterGurus);
-        document
-          .getElementById("filter-status")
-          .addEventListener("change", filterGurus);
+        if (mobileMenuBtn && mobileMenu && closeMenuBtn && mobileMenuPanel) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+            setTimeout(() => {
+              mobileMenuPanel.classList.remove("-translate-x-full");
+            }, 10);
+          });
 
-        // Close modal when clicking outside
-        const modal = document.getElementById("guru-modal");
-        if (modal) {
-          modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-              closeModal();
-            }
+          closeMenuBtn.addEventListener("click", closeMobileMenu);
+
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) closeMobileMenu();
           });
         }
-      });
-    </script>
-    <!-- Script -->
-    <script>
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMenuBtn = document.getElementById("close-menu");
-      const mobileMenuPanel = document.getElementById("mobile-menu-panel");
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("hidden");
-        mobileMenu.classList.add("flex");
-        setTimeout(() => {
-          mobileMenuPanel.classList.remove("-translate-x-full");
-        }, 10);
-      });
-      closeMenuBtn.addEventListener("click", () => {
-        mobileMenuPanel.classList.add("-translate-x-full");
-        setTimeout(() => {
-          mobileMenu.classList.remove("flex");
-          mobileMenu.classList.add("hidden");
-        }, 300);
-      });
-      // Close menu when clicking outside
-      mobileMenu.addEventListener("click", (e) => {
-        if (e.target === mobileMenu) {
+
+        function closeMobileMenu() {
           mobileMenuPanel.classList.add("-translate-x-full");
           setTimeout(() => {
             mobileMenu.classList.remove("flex");
             mobileMenu.classList.add("hidden");
           }, 300);
         }
-      });
-      function toggleSubmenu(submenuId) {
+      }
+
+      window.toggleSubmenu = function (submenuId) {
         const submenu = document.getElementById(submenuId);
         const chevron = document.getElementById(
           submenuId.replace("-submenu", "-chevron"),
         );
-        submenu.classList.toggle("hidden");
-        // Rotate chevron
-        if (submenu.classList.contains("hidden")) {
-          chevron.style.transform = "rotate(0deg)";
-        } else {
-          chevron.style.transform = "rotate(180deg)";
+        if (submenu && chevron) {
+          submenu.classList.toggle("hidden");
+          chevron.style.transform = submenu.classList.contains("hidden")
+            ? "rotate(0deg)"
+            : "rotate(180deg)";
         }
-      }
-      // Add search functionality
-      document
-        .querySelector(".fa-search")
-        .parentElement.addEventListener("click", () => {
-          const searchInput = document.querySelector('input[type="text"]');
-          if (searchInput.value.trim()) {
-            alert("Mencari: " + searchInput.value);
-            // Here you would typically redirect to search results
-          } else {
-            searchInput.focus();
-          }
-        });
-      // Add enter key support for search
-      document
-        .querySelector('input[type="text"]')
-        .addEventListener("keypress", (e) => {
-          if (e.key === "Enter") {
-            const searchButton =
-              document.querySelector(".fa-search").parentElement;
-            searchButton.click();
-          }
-        });
+      };
+
+      document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
 </html>

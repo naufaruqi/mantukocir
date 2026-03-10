@@ -1,0 +1,76 @@
+<!-- Guru dan Tendik Content -->
+<main class="max-w-7xl mx-auto px-6 py-10">
+  <div
+    class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4"
+  >
+    <div>
+      <h2 class="text-3xl font-bold text-gray-800">Guru</h2>
+      <p class="text-gray-500 text-sm mt-1">Tenaga Pendidik dan Staf</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="flex flex-col sm:flex-row gap-3">
+      <div class="relative">
+        <input
+          type="text"
+          id="search-nama"
+          placeholder="Cari nama guru..."
+          class="w-full sm:w-64 pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm"
+        />
+        <i
+          class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+        ></i>
+      </div>
+      <select
+        id="filter-jabatan"
+        class="w-full sm:w-48 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm text-gray-700 bg-white"
+      >
+        <option value="">Semua Jabatan</option>
+      </select>
+      <select
+        id="filter-status"
+        class="w-full sm:w-48 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2ebcb9] shadow-sm text-sm text-gray-700 bg-white"
+      >
+        <option value="">Semua Status</option>
+      </select>
+    </div>
+  </div>
+
+  <div
+    id="guru-container"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+  >
+    <!-- cards will be injected here by javascript -->
+  </div>
+
+  <!-- No Results Message -->
+  <div id="no-results" class="hidden text-center py-10">
+    <div class="text-gray-400 text-5xl mb-3">
+      <i class="fas fa-search-minus"></i>
+    </div>
+    <h3 class="text-xl font-semibold text-gray-700">Tidak ada hasil</h3>
+    <p class="text-gray-500 mt-2">
+      Coba sesuaikan kata kunci atau filter pencarian Anda.
+    </p>
+  </div>
+
+  <!-- Modal Guru -->
+  <div
+    id="guru-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300"
+  >
+    <div
+      class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 transition-transform duration-300 relative"
+    >
+      <button
+        onclick="closeModal()"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 bg-white/50 hover:bg-gray-100 rounded-full p-2 z-10 transition"
+      >
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <div id="modal-content">
+        <!-- Modal content injected here -->
+      </div>
+    </div>
+  </div>
+</main>

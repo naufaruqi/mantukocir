@@ -1,0 +1,261 @@
+<!-- Admin Content -->
+<main class="flex-1 overflow-auto container mx-auto p-6 max-w-7xl">
+  <div class="bg-white rounded-xl shadow-sm border p-6">
+    <div
+      class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6"
+    >
+      <div>
+        <h2 class="text-2xl font-bold text-gray-800 font-['Outfit']">
+          Daftar Guru & Tendik
+        </h2>
+        <p class="text-gray-500 mt-1">Kelola data guru untuk gurus.json</p>
+      </div>
+      <div class="flex gap-3 items-center">
+        <div class="relative">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Cari nama guru..."
+            class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] w-full md:w-64"
+            onkeyup="renderTable()"
+          />
+          <i
+            class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          ></i>
+        </div>
+        <button
+          onclick="openModal()"
+          class="bg-[#2ebcb9] hover:bg-[#259c99] text-white px-4 py-2 rounded-lg transition font-medium whitespace-nowrap shadow-sm"
+        >
+          <i class="fas fa-plus mr-1"></i> Tambah Data
+        </button>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto rounded-lg border border-gray-200">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr
+            class="bg-gray-100/70 border-b border-gray-200 text-gray-600 font-semibold uppercase text-xs tracking-wider"
+          >
+            <th class="p-4" style="width: 50px">No</th>
+            <th class="p-4">Info Guru</th>
+            <th class="p-4">Identitas (NIP/NUPTK)</th>
+            <th class="p-4">Kontak</th>
+            <th class="p-4 text-center" style="width: 150px">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="guru-table-body" class="divide-y divide-gray-200">
+          <!-- Data baris tabel dirender di sini lewat js -->
+        </tbody>
+      </table>
+
+      <div id="loading" class="text-center py-10 text-gray-400">
+        <i class="fas fa-spinner fa-spin text-3xl mb-3"></i>
+        <p>Memuat data ...</p>
+      </div>
+
+      <div id="no-data" class="hidden text-center py-10 text-gray-400">
+        <i class="fas fa-folder-open text-3xl mb-3"></i>
+        <p>Belum ada data atau tidak ditemukan.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Modal Formulir -->
+<div
+  id="form-modal"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col transform transition-all"
+  >
+    <div
+      class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50 rounded-t-2xl"
+    >
+      <h3
+        id="modal-title"
+        class="text-xl font-bold text-gray-800 font-['Outfit']"
+      >
+        Tambah Data Guru
+      </h3>
+      <button
+        onclick="closeModal()"
+        class="text-gray-400 hover:text-red-500 transition text-lg w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="p-6 overflow-y-auto w-full custom-scroll">
+      <form id="guru-form" class="space-y-4">
+        <input type="hidden" id="entry-index" value="-1" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-1 md:col-span-2">
+            <label class="block text-gray-700 font-medium mb-1"
+              >Nama Lengkap & Gelar</label
+            >
+            <input
+              type="text"
+              id="form-nama"
+              required
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Contoh: Dra. Hj. Elin Erlina, M.Hum"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1"
+              >Jabatan / Tugas Tambahan</label
+            >
+            <input
+              type="text"
+              id="form-jabatan"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Contoh: Waka Kurikulum"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1"
+              >Status Kepegawaian</label
+            >
+            <select
+              id="form-status"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition bg-white"
+            >
+              <option value="PNS">PNS</option>
+              <option value="PPPK">PPPK</option>
+              <option value="CPNS">CPNS</option>
+              <option value="NON-ASN">NON-ASN</option>
+              <option value="-">-</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">NIP</label>
+            <input
+              type="text"
+              id="form-nip"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Kosongkan jika tidak ada, atau ketik -"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">NUPTK</label>
+            <input
+              type="text"
+              id="form-nuptk"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Kosongkan jika tidak ada"
+            />
+          </div>
+
+          <div class="col-span-1 md:col-span-2">
+            <label class="block text-gray-700 font-medium mb-1"
+              >Alamat Foto (URL Bebas/Relatif)</label
+            >
+            <input
+              type="text"
+              id="form-foto"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Contoh: ../img/GURU/PNS/foto.jpg"
+            />
+          </div>
+
+          <div class="col-span-1 md:col-span-2 border-t pt-4 mt-2">
+            <h4
+              class="font-semibold text-gray-600 mb-3 uppercase text-xs tracking-wide"
+            >
+              Informasi Kontak & Sosial
+            </h4>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1"
+              >No. HP / WA</label
+            >
+            <input
+              type="text"
+              id="form-hp"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Contoh: 085XXXXX"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">Email</label>
+            <input
+              type="email"
+              id="form-email"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Contoh: guru@gmail.com"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1"
+              >Username Facebook</label
+            >
+            <input
+              type="text"
+              id="form-facebook"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Ketik nama FB / link"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-1"
+              >Username Instagram</label
+            >
+            <input
+              type="text"
+              id="form-instagram"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-[#29abe2] transition"
+              placeholder="Ketik id IG / link"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div
+      class="px-6 py-4 border-t border-gray-100 flex justify-end gap-3 bg-gray-50/50 rounded-b-2xl"
+    >
+      <button
+        onclick="closeModal()"
+        class="px-5 py-2 text-gray-600 font-medium bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+      >
+        Batal
+      </button>
+      <button
+        onclick="saveData()"
+        class="px-5 py-2 text-white font-medium bg-[#29abe2] hover:bg-[#208ab8] shadow-md rounded-lg transition flex items-center"
+      >
+        <i class="fas fa-save mr-2"></i> Simpan Data
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom scrollbar for better aesthetics inside modal */
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+</style>
