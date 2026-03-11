@@ -6,7 +6,7 @@
     <!-- Meta Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Nama Taskbar -->
-    <title>MAN 1 Kota Cirebon - Clone</title>
+    <title>MAN 1 Kota Cirebon</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,7 +50,10 @@
       </div>
     </div>
 
-    <!-- Script -->
+    <!-- Navigation Configuration Script - Loaded First -->
+    <script src="./js/navigation-config.js"></script>
+
+    <!-- Main Application Script -->
     <script>
       // Function to dynamically load HTML components
       async function loadComponent(elementId, componentPath) {
@@ -61,11 +64,6 @@
           }
           const html = await response.text();
           document.getElementById(elementId).innerHTML = html;
-
-          // Re-attach event listeners specific to the injected content
-          if (elementId === "navbar-container") {
-            attachNavbarEvents();
-          }
         } catch (error) {
           console.error(error);
           document.getElementById(elementId).innerHTML =
@@ -233,43 +231,6 @@
         }
       });
 
-      // Function to re-attach navbar specific event listeners
-      function attachNavbarEvents() {
-        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const closeMenuBtn = document.getElementById("close-menu");
-        const mobileMenuPanel = document.getElementById("mobile-menu-panel");
-
-        if (mobileMenuBtn && mobileMenu) {
-          mobileMenuBtn.addEventListener("click", () => {
-            mobileMenu.classList.remove("hidden");
-            mobileMenu.classList.add("flex");
-            setTimeout(() => {
-              mobileMenuPanel.classList.remove("-translate-x-full");
-            }, 10);
-          });
-
-          closeMenuBtn.addEventListener("click", () => {
-            mobileMenuPanel.classList.add("-translate-x-full");
-            setTimeout(() => {
-              mobileMenu.classList.remove("flex");
-              mobileMenu.classList.add("hidden");
-            }, 300);
-          });
-
-          // Close menu when clicking outside
-          mobileMenu.addEventListener("click", (e) => {
-            if (e.target === mobileMenu) {
-              mobileMenuPanel.classList.add("-translate-x-full");
-              setTimeout(() => {
-                mobileMenu.classList.remove("flex");
-                mobileMenu.classList.add("hidden");
-              }, 300);
-            }
-          });
-        }
-      }
-
       // Setup hero search functionality
       function setupSearch() {
         const searchIcon = document.querySelector(".fa-search");
@@ -292,24 +253,6 @@
           });
         }
       }
-
-      // Global context toggle for submenus injected dynamically
-      window.toggleSubmenu = function (submenuId) {
-        const submenu = document.getElementById(submenuId);
-        const chevron = document.getElementById(
-          submenuId.replace("-submenu", "-chevron"),
-        );
-        if (submenu) {
-          submenu.classList.toggle("hidden");
-
-          // Rotate chevron
-          if (submenu.classList.contains("hidden")) {
-            chevron.style.transform = "rotate(0deg)";
-          } else {
-            chevron.style.transform = "rotate(180deg)";
-          }
-        }
-      };
 
       // Run on page load
       document.addEventListener("DOMContentLoaded", initializePage);

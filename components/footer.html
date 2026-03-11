@@ -1,117 +1,140 @@
-<!-- Footer -->
-<footer class="bg-[#0d233a] text-white pt-12 pb-6 mt-10">
+<!-- Footer - Clean Code Version -->
+<footer class="bg-[#0d233a] text-white pt-12 pb-6 mt-10" role="contentinfo">
   <div class="container mx-auto px-4 md:px-10">
+    <!-- Main Content Grid -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
+      
+      <!-- Company Info Section -->
       <div class="md:col-span-5">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="./img/logoman.png" alt="OSIS" class="w-12 h-12" />
-          <span class="font-['Outfit'] font-bold text-2xl"
-            >MAN 1
-            <span class="font-bold text-2xl text-orange-500"
-              >Kota Cirebon</span
-            ></span
-          >
-        </div>
-        <p class="text-sm text-gray-300 mb-6 leading-relaxed max-w-sm">
-          Jl. Pilang Raya No.31, Sukapura, Kec. Kejaksan, Kota Cirebon, Jawa
-          Barat 45122
-        </p>
-        <img
-          class="h-10 rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
-          src="https://mansatukotacirebon.sch.id/wp-content/uploads/2022/07/google-play-badge.png"
-          alt="Get it on Google Play"
-        />
+        <a href="#hero" class="flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity" aria-label="Back to home">
+          <img src="./img/logoman.png" alt="Logo MAN 1 Kota Cirebon" class="w-12 h-12" />
+          <span class="font-['Outfit'] font-bold text-2xl">
+            MAN 1
+            <span class="text-orange-500">Kota Cirebon</span>
+          </span>
+        </a>
+        <address class="text-sm text-gray-300 mb-6 leading-relaxed max-w-sm not-italic">
+          Jl. Pilang Raya No.31, Sukapura, Kec. Kejaksan, Kota Cirebon, Jawa Barat 45122
+        </address>
+        <a 
+          href="#" 
+          class="inline-block hover:opacity-80 transition-opacity"
+          aria-label="Download aplikasi dari Google Play"
+        >
+          <img
+            class="h-10 rounded-lg"
+            src="https://mansatukotacirebon.sch.id/wp-content/uploads/2022/07/google-play-badge.png"
+            alt="Get it on Google Play"
+          />
+        </a>
       </div>
+
+      <!-- Navigation Menu Section -->
       <div class="md:col-span-3">
         <h3 class="text-lg font-bold mb-4">Menu</h3>
-        <ul class="space-y-3 text-sm text-gray-300">
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors"
-              >Beranda</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors"
-              >Profile</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors"
-              >Artikel</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors"
-              >Informasi</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors">PPDB</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors">RDM</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-orange-400 transition-colors"
-              >Kontak</a
-            >
-          </li>
-        </ul>
+        <nav aria-label="Footer navigation">
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li><a href="#hero" class="hover:text-orange-400 transition-colors duration-200">Beranda</a></li>
+            <li><a href="#profile" class="hover:text-orange-400 transition-colors duration-200">Profile</a></li>
+            <li><a href="#artikel" class="hover:text-orange-400 transition-colors duration-200">Artikel</a></li>
+            <li><a href="#informasi" class="hover:text-orange-400 transition-colors duration-200">Informasi</a></li>
+            <li><a href="#ppdb" class="hover:text-orange-400 transition-colors duration-200">PPDB</a></li>
+            <li><a href="#rdm" class="hover:text-orange-400 transition-colors duration-200">RDM</a></li>
+            <li><a href="#kontak" class="hover:text-orange-400 transition-colors duration-200">Kontak</a></li>
+          </ul>
+        </nav>
       </div>
+
+      <!-- Contact Section -->
       <div class="md:col-span-4">
         <h3 class="text-lg font-bold mb-4">Hubungi Kami</h3>
-        <p class="text-sm font-semibold mb-3">Bantuan</p>
+        
+        <h4 class="text-sm font-semibold mb-3">Bantuan</h4>
         <ul class="space-y-3 text-sm text-gray-300 mb-6">
+          <!-- Email -->
           <li class="flex items-start gap-3">
-            <i class="fas fa-envelope text-orange-500 mt-1"></i>
+            <i class="fas fa-envelope text-orange-500 mt-1 flex-shrink-0"></i>
             <a
               href="mailto:admin@mansatukotacirebon.sch.id"
-              class="hover:text-orange-400 transition-colors break-all"
-              >admin@mansatukotacirebon.sch.id</a
+              class="hover:text-orange-400 transition-colors duration-200 break-all"
             >
+              admin@mansatukotacirebon.sch.id
+            </a>
           </li>
+          
+          <!-- WhatsApp -->
           <li class="flex items-start gap-3">
-            <i class="fab fa-whatsapp text-orange-500 mt-1"></i>
+            <i class="fab fa-whatsapp text-orange-500 mt-1 flex-shrink-0"></i>
             <a
               href="https://wa.me/6282127390095"
-              class="hover:text-orange-400 transition-colors"
-              >https://wa.me/6282127390095</a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-orange-400 transition-colors duration-200"
             >
+              +62 821 2739 0095
+            </a>
           </li>
+          
+          <!-- Phone -->
           <li class="flex items-start gap-3">
-            <i class="fas fa-phone text-orange-500 mt-1"></i>
-            <span>082127390095</span>
+            <i class="fas fa-phone text-orange-500 mt-1 flex-shrink-0"></i>
+            <span>(0231) 200 098</span>
           </li>
         </ul>
+
+        <!-- Social Media -->
         <h4 class="text-sm font-bold mb-3">Ikuti Kami</h4>
         <div class="flex gap-3">
           <a
             href="#"
             class="w-8 h-8 bg-[#3b5998] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+            aria-label="Facebook"
+            title="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
           <a
             href="#"
             class="w-8 h-8 bg-[#00aced] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-            ><i class="fab fa-twitter"></i
-          ></a>
+            aria-label="Twitter"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
           <a
             href="#"
             class="w-8 h-8 bg-[#ff0000] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-            ><i class="fab fa-youtube"></i
-          ></a>
+            aria-label="YouTube"
+            title="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
           <a
             href="#"
             class="w-8 h-8 bg-[#c13584] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-            ><i class="fab fa-instagram"></i
-          ></a>
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
     </div>
-    <div
-      class="text-center text-xs text-gray-400 border-t border-white/10 pt-6"
-    >
-      Web Madrasah © by mansatukotacirebon.sch.id
+
+    <!-- Footer Bottom -->
+    <div class="text-center text-xs text-gray-400 border-t border-white/10 pt-6">
+      <p>&copy; <span id="footer-year"></span> MAN 1 Kota Cirebon - All Rights Reserved</p>
+      <p class="mt-1">Powered by <a href="#" class="hover:text-orange-400 transition-colors">mansatukotacirebon.sch.id</a></p>
     </div>
   </div>
 </footer>
+
+<!-- Script untuk update tahun -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.getElementById('footer-year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  });
+</script>

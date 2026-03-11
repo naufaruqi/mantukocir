@@ -1,287 +1,191 @@
-<!-- Top Taskbar -->
-<nav class="bg-[#29abe2] text-white p-2 shadow-md sticky top-0 z-40">
+<!-- Navbar Desktop & Mobile - Clean Code Version -->
+<nav class="bg-[#29abe2] text-white p-2 shadow-md sticky top-0 z-40" role="navigation" aria-label="Menu navigasi utama">
   <div class="container mx-auto flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <img src="./img/logoman.png" alt="OSIS" class="w-12 h-12" />
-      <span class="font-['Outfit'] font-bold text-2xl"
-        >MAN 1
-        <span class="font-bold text-2xl text-orange-500"
-          >Kota Cirebon</span
-        ></span
-      >
-    </div>
-    <ul class="hidden md:flex space-x-6 text-sm font-medium">
+    <!-- Logo & Brand -->
+    <a href="#hero" class="flex items-center space-x-2 hover:opacity-80 transition-opacity" aria-label="MAN 1 Kota Cirebon - Beranda">
+      <img src="./img/logoman.png" alt="Logo MAN 1 Kota Cirebon" class="w-12 h-12" />
+      <span class="font-['Outfit'] font-bold text-2xl">
+        MAN 1
+        <span class="text-orange-500">Kota Cirebon</span>
+      </span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 text-sm font-medium" id="desktop-menu">
       <li>
-        <a
-          href="#hero"
-          class="hover:text-orange-300 transition-colors duration-200"
-          >Beranda</a
-        >
-      </li>
-      <li class="relative group">
-        <a
-          href="#"
-          class="hover:text-orange-300 transition-colors duration-200 flex items-center"
-        >
-          Profile <i class="fas fa-chevron-down text-xs ml-1"></i>
+        <a href="#hero" class="hover:text-orange-300 transition-colors duration-200" id="nav-beranda">
+          Beranda
         </a>
-        <ul
-          class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[150px] z-50"
-        >
-          <li>
-            <a
-              href="pages/sambutan.html"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Sambutan</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Visi & Misi</a
-            >
-          </li>
-          <li>
-            <a
-              href="pages/guru_tendik.html"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Guru & Tendik</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Ekskul</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Fasilitas</a
-            >
-          </li>
+      </li>
+
+      <!-- Profile Dropdown -->
+      <li class="relative group">
+        <button class="hover:text-orange-300 transition-colors duration-200 flex items-center cursor-pointer" id="nav-profile">
+          Profile
+          <i class="fas fa-chevron-down text-xs ml-1 group-hover:rotate-180 transition-transform duration-200"></i>
+        </button>
+        <ul class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[160px] z-50">
+          <li><a href="pages/sambutan.html" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Sambutan</a></li>
+          <li><a href="#visi-misi" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Visi & Misi</a></li>
+          <li><a href="pages/guru_tendik.html" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Guru & Tendik</a></li>
+          <li><a href="#ekskul" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Ekskul</a></li>
+          <li><a href="#fasilitas" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Fasilitas</a></li>
         </ul>
       </li>
+
       <li>
-        <a
-          href="#artikel"
-          class="hover:text-orange-300 transition-colors duration-200"
-          >Artikel</a
-        >
-      </li>
-      <li class="relative group">
-        <a
-          href="#"
-          class="hover:text-orange-300 transition-colors duration-200 flex items-center"
-        >
-          Informasi <i class="fas fa-chevron-down text-xs ml-1"></i>
+        <a href="#artikel" class="hover:text-orange-300 transition-colors duration-200" id="nav-artikel">
+          Artikel
         </a>
-        <ul
-          class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[150px] z-50"
-        >
-          <li>
-            <a
-              href="#"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Pengumuman</a
-            >
-          </li>
-          <li>
-            <a
-              href="#agenda"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Agenda</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200"
-              >Prestasi</a
-            >
-          </li>
+      </li>
+
+      <!-- Informasi Dropdown -->
+      <li class="relative group">
+        <button class="hover:text-orange-300 transition-colors duration-200 flex items-center cursor-pointer" id="nav-informasi">
+          Informasi
+          <i class="fas fa-chevron-down text-xs ml-1 group-hover:rotate-180 transition-transform duration-200"></i>
+        </button>
+        <ul class="absolute top-full left-0 bg-white text-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[160px] z-50">
+          <li><a href="#pengumuman" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Pengumuman</a></li>
+          <li><a href="#agenda" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Agenda</a></li>
+          <li><a href="#prestasi" class="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-200">Prestasi</a></li>
         </ul>
       </li>
-      <li>
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
-          >PPDB</a
-        >
-      </li>
-      <li>
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
-          >RDM</a
-        >
-      </li>
-      <li>
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
-          >Kontak</a
-        >
-      </li>
+
+      <li><a href="#ppdb" class="hover:text-orange-300 transition-colors duration-200" id="nav-ppdb">PPDB</a></li>
+      <li><a href="#rdm" class="hover:text-orange-300 transition-colors duration-200" id="nav-rdm">RDM</a></li>
+      <li><a href="#kontak" class="hover:text-orange-300 transition-colors duration-200" id="nav-kontak">Kontak</a></li>
     </ul>
+
+    <!-- Login Button -->
     <button
-      onclick="window.location.href = 'login.html'"
-      class="hidden md:flex bg-white text-gray-700 px-6 py-1.5 rounded-full text-sm font-semibold flex items-center hover:bg-orange-100 hover:text-orange-600 transition-all duration-200 shadow-md hover:shadow-lg"
+      onclick="window.location.href = '../login.html'"
+      class="hidden md:flex bg-white text-gray-700 px-6 py-1.5 rounded-full text-sm font-semibold items-center hover:bg-orange-100 hover:text-orange-600 transition-all duration-200 shadow-md hover:shadow-lg"
+      aria-label="Masuk ke sistem"
     >
       Masuk <i class="fas fa-lock ml-2 text-xs"></i>
     </button>
+
+    <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
       class="md:hidden text-white hover:text-orange-300 transition-colors duration-200"
+      onclick="window.toggleMobileMenu()"
+      aria-label="Buka menu mobile"
+      aria-expanded="false"
     >
       <i class="fas fa-bars text-xl"></i>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-  <div
-    class="bg-white w-80 h-full shadow-xl transform -translate-x-full transition-transform duration-300"
-    id="mobile-menu-panel"
-  >
+<!-- Mobile Menu - Clean Code Version -->
+<div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" role="dialog" aria-hidden="true" aria-label="Menu navigasi mobile">
+  <div class="bg-white w-80 h-full shadow-xl transform -translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+    <!-- Mobile Menu Header -->
     <div class="bg-[#29abe2] text-white p-4">
       <div class="flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-          <img src="./img/logoman.png" alt="Logo MAN 1" class="w-8 h-8" />
-          <span class="font-['Outfit'] font-bold">MAN 1</span>
-        </div>
+        <span class="font-['Outfit'] font-bold flex items-center gap-2">
+          <img src="./img/logoman.png" alt="" class="w-8 h-8" />
+          MAN 1
+        </span>
         <button
           id="close-menu"
           class="text-white hover:text-orange-300 transition-colors duration-200"
+          onclick="window.closeMobileMenu()"
           aria-label="Tutup menu"
         >
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
     </div>
-    <nav class="p-4" role="navigation">
-      <ul class="space-y-2 overflow-y-auto h-screen">
+
+    <!-- Mobile Menu Items -->
+    <nav class="p-4 overflow-y-auto h-[calc(100vh-80px)]" role="navigation">
+      <ul class="space-y-2">
+        <!-- Beranda -->
         <li>
-          <a
-            href="#hero"
-            class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-            >Beranda</a
-          >
+          <a href="#hero" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 font-medium">
+            Beranda
+          </a>
         </li>
 
+        <!-- Profile Submenu -->
         <li>
           <button
-            class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center"
-            onclick="window.toggleSubmenu('profile-submenu')"
+            class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center font-medium"
+            onclick="window.toggleSubmenu('mobile-profile-submenu')"
             aria-expanded="false"
+            aria-controls="mobile-profile-submenu"
           >
             Profile
-            <i
-              class="fas fa-chevron-down text-xs transition-transform duration-200"
-              id="profile-chevron"
-            ></i>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
           </button>
-          <ul id="profile-submenu" class="hidden pl-4 mt-2 space-y-1">
-            <li>
-              <a
-                href="pages/sambutan.html"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Sambutan</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Visi & Misi</a
-              >
-            </li>
-            <li>
-              <a
-                href="pages/guru_tendik.html"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Guru & Tendik</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Ekskul</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Fasilitas</a
-              >
-            </li>
+          <ul id="mobile-profile-submenu" class="hidden pl-4 mt-2 space-y-1">
+            <li><a href="pages/sambutan.html" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Sambutan</a></li>
+            <li><a href="#visi-misi" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Visi & Misi</a></li>
+            <li><a href="pages/guru_tendik.html" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Guru & Tendik</a></li>
+            <li><a href="#ekskul" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Ekskul</a></li>
+            <li><a href="#fasilitas" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Fasilitas</a></li>
           </ul>
         </li>
+
+        <!-- Artikel -->
         <li>
-          <a
-            href="#artikel"
-            class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-            >Artikel</a
-          >
+          <a href="#artikel" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 font-medium">
+            Artikel
+          </a>
         </li>
+
+        <!-- Informasi Submenu -->
         <li>
           <button
-            class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center"
-            onclick="window.toggleSubmenu('info-submenu')"
+            class="w-full text-left py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 flex justify-between items-center font-medium"
+            onclick="window.toggleSubmenu('mobile-info-submenu')"
             aria-expanded="false"
+            aria-controls="mobile-info-submenu"
           >
             Informasi
-            <i
-              class="fas fa-chevron-down text-xs transition-transform duration-200"
-              id="info-chevron"
-            ></i>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
           </button>
-          <ul id="info-submenu" class="hidden pl-4 mt-2 space-y-1">
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Pengumuman</a
-              >
-            </li>
-            <li>
-              <a
-                href="#agenda"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Agenda</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm"
-                >Prestasi</a
-              >
-            </li>
+          <ul id="mobile-info-submenu" class="hidden pl-4 mt-2 space-y-1">
+            <li><a href="#pengumuman" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Pengumuman</a></li>
+            <li><a href="#agenda" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Agenda</a></li>
+            <li><a href="#prestasi" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 text-sm">Prestasi</a></li>
           </ul>
         </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-            >PPDB</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-            >RDM</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200"
-            >Kontak</a
-          >
-        </li>
+
+        <!-- Single Items -->
+        <li><a href="#ppdb" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 font-medium">PPDB</a></li>
+        <li><a href="#rdm" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 font-medium">RDM</a></li>
+        <li><a href="#kontak" onclick="window.closeMobileMenu()" class="block py-2 px-4 hover:bg-orange-100 rounded transition-colors duration-200 font-medium">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </div>
+
+<!-- Script untuk menambahkan event listeners -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', window.toggleMobileMenu);
+    }
+    
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', window.closeMobileMenu);
+    }
+    
+    // Close mobile menu when clicking outside
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === this) {
+          window.closeMobileMenu();
+        }
+      });
+    }
+  });
+</script>
